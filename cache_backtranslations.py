@@ -1,5 +1,6 @@
 import textblob
 
+import itertools
 import glob
 import time
 from tqdm import tqdm_notebook, tqdm
@@ -9,6 +10,7 @@ import pickle
 from pathlib import Path
 import pathlib
 import fire
+import shutil
 
 def pickle_save(obj, path):
     with open(path, 'wb') as f:
@@ -43,8 +45,6 @@ def back_translate(text, target_language, verbose=VERBOSE):
         print(en)
     return str(en)
 
-
-
 def saver(pth, target_language, google=False, do_sleep=True):
     assert isinstance(pth, str)
     text = open_text(pth)
@@ -58,7 +58,7 @@ def saver(pth, target_language, google=False, do_sleep=True):
         back = back_translate(text, target_language=target_language)
     save_texts(save_path, [back])
     if do_sleep:
-        time.sleep(1)  # to avoid getting bothced
+        time.sleep(1)  # to avoid getting blocked
 
 def map_backtranslate():
     """"""
@@ -111,12 +111,19 @@ def copy_subset_of_files(src_path: pathlib.Path, dest_path, n=500):
         shutil.copy(sp, dest_path)
 
 
+def stupid_shuffle(txt_files):
+    combo = itertools.combinations(txt_files, len(txt_files))
+    for shuff_files in combo:
+        break
+    return shuff_files
 
 PAT = '*/*.txt'
 
 def run(imdb_dir, target_language):
     #/ Users / shleifer /.fastai / data / imdb / train /
-    txt_files = glob.glob(imdb_dir + '*/*.txt')
+    neg_files = glob.glob(imdb_dir + 'neg/*.txt')
+    pos_files = glob.glob(imdb_dir + 'pos/*.txt')
+    txt_files = stupid_shuffle(neg_files + pos_files)
     for pth in tqdm(txt_files):
         saver(pth, target_language)
 
