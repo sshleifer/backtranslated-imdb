@@ -1,13 +1,14 @@
 import textblob
-import funcy
+
 import glob
 import time
 from tqdm import tqdm_notebook, tqdm
-from fastai.text import *
-from fastai.core import save_texts
+# from fastai.text import *
+# from fastai.core import save_texts
 import pickle
 from pathlib import Path
-from multiprocessing import Pool
+import pathlib
+import fire
 
 def pickle_save(obj, path):
     with open(path, 'wb') as f:
@@ -21,6 +22,16 @@ def make_dir_structure_under(path) -> None:
     p = Path(path)
     p.parent.mkdir(parents=True, exist_ok=True)
 
+
+def open_text(fn, enc='utf-8'):
+    "Read the text in `fn`."
+    with open(fn,'r', encoding = enc) as f: return ''.join(f.readlines())
+
+
+def save_texts(fname, texts):
+    "Save in `fname` the content of `texts`."
+    with open(fname, 'w') as f:
+        for t in texts: f.write(f'{t}\n')
 
 VERBOSE = False
 def back_translate(text, target_language, verbose=VERBOSE):
@@ -52,6 +63,9 @@ def saver(pth, target_language, google=False, do_sleep=True):
 def map_backtranslate():
     """"""
     raise NotImplementedError()
+    from multiprocessing import Pool
+
+    import funcy
     path = untar_data(URLs.IMDB)
     txt_files = glob.glob(f'{path}/train/*/*.txt')
     pool = Pool(8)
@@ -97,4 +111,14 @@ def copy_subset_of_files(src_path: pathlib.Path, dest_path, n=500):
         shutil.copy(sp, dest_path)
 
 
-txt_files = glob('/Users/shleifer/.fastai/data/imdb/train/*/*.txt')
+
+PAT = '*/*.txt'
+
+def run(imdb_dir, target_language):
+    #/ Users / shleifer /.fastai / data / imdb / train /
+    txt_files = glob.glob(imdb_dir + '*/*.txt')
+    for pth in tqdm(txt_files):
+        saver(pth, target_language)
+
+
+if __name__ == '__main__': fire.Fire(run)
