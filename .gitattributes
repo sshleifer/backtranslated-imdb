@@ -1,3 +1,4 @@
 imdb_et filter=lfs diff=lfs merge=lfs -text
 imdb filter=lfs diff=lfs merge=lfs -text
 imdb_bn/ filter=lfs diff=lfs merge=lfs -text
+imdb* filter=lfs diff=lfs merge=lfs -text
