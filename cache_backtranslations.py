@@ -125,7 +125,10 @@ def run(imdb_dir, target_language):
     pos_files = glob.glob(imdb_dir + 'pos/*.txt')
     txt_files = stupid_shuffle(neg_files + pos_files)
     for pth in tqdm(txt_files):
-        saver(pth, target_language)
+        try:
+            saver(pth, target_language)
+        except Exception as e:
+            print(e, pth)
 
 
 if __name__ == '__main__': fire.Fire(run)
