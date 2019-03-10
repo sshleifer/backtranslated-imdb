@@ -1,8 +1,20 @@
-python cache_backtranslations.py     --imdb_dir imdb/train/ --target_language ny
-python cache_backtranslations.py     --imdb_dir imdb/train/ --target_language is
-python cache_backtranslations.py     --imdb_dir imdb/train/ --target_language ja
-python cache_backtranslations.py     --imdb_dir imdb/train/ --target_language ta
+#!/usr/bin/env bash
+python cache_backtranslations.py     --imdb_dir imdb/train/ --target_language be
+python cache_backtranslations.py     --imdb_dir imdb/train/ --target_language lt
+python cache_backtranslations.py     --imdb_dir imdb/train/ --target_language ms
+python cache_backtranslations.py     --imdb_dir imdb/train/ --target_language mk
+python cache_backtranslations.py     --imdb_dir imdb/train/ --target_language no
+python cache_backtranslations.py     --imdb_dir imdb/train/ --target_language fa
+python cache_backtranslations.py     --imdb_dir imdb/train/ --target_language pl
+python cache_backtranslations.py     --imdb_dir imdb/train/ --target_language pt
+python cache_backtranslations.py     --imdb_dir imdb/train/ --target_language ro
+python cache_backtranslations.py     --imdb_dir imdb/train/ --target_language sr
+python cache_backtranslations.py     --imdb_dir imdb/train/ --target_language sw
+python cache_backtranslations.py     --imdb_dir imdb/train/ --target_language te
 python cache_backtranslations.py     --imdb_dir imdb/train/ --target_language th
-python cache_backtranslations.py     --imdb_dir imdb/train/ --target_language iw
-python cache_backtranslations.py     --imdb_dir imdb/train/ --target_language tl
-python cache_backtranslations.py     --imdb_dir imdb/train/ --target_language sk
+python cache_backtranslations.py     --imdb_dir imdb/train/ --target_language tu
+python cache_backtranslations.py     --imdb_dir imdb/train/ --target_language uk
+python cache_backtranslations.py     --imdb_dir imdb/train/ --target_language ur
+python cache_backtranslations.py     --imdb_dir imdb/train/ --target_language vi
+python cache_backtranslations.py     --imdb_dir imdb/train/ --target_language cy
+python cache_backtranslations.py     --imdb_dir imdb/train/ --target_language yi
