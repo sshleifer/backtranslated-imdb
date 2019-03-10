@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
+python cache_backtranslations.py     --imdb_dir imdb/train/ --target_language af
+python cache_backtranslations.py     --imdb_dir imdb/train/ --target_language sq
+python cache_backtranslations.py     --imdb_dir imdb/train/ --target_language ar
+python cache_backtranslations.py     --imdb_dir imdb/train/ --target_language az
+python cache_backtranslations.py     --imdb_dir imdb/train/ --target_language eu
 python cache_backtranslations.py     --imdb_dir imdb/train/ --target_language be
-python cache_backtranslations.py     --imdb_dir imdb/train/ --target_language lt
-python cache_backtranslations.py     --imdb_dir imdb/train/ --target_language ms
-python cache_backtranslations.py     --imdb_dir imdb/train/ --target_language mk
-python cache_backtranslations.py     --imdb_dir imdb/train/ --target_language no
-python cache_backtranslations.py     --imdb_dir imdb/train/ --target_language fa
 python cache_backtranslations.py     --imdb_dir imdb/train/ --target_language pl
 python cache_backtranslations.py     --imdb_dir imdb/train/ --target_language pt
 python cache_backtranslations.py     --imdb_dir imdb/train/ --target_language ro

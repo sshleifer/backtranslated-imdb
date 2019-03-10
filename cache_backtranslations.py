@@ -58,7 +58,7 @@ def saver(pth, target_language, google=False, do_sleep=True):
         back = back_translate(text, target_language=target_language)
     save_texts(save_path, [back])
     if do_sleep:
-        time.sleep(.1)  # to avoid getting blocked
+        time.sleep(.5)  # to avoid getting blocked
 
 def map_backtranslate():
     """"""
